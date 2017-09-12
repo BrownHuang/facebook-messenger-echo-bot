@@ -29,7 +29,14 @@ app.post('/', function (req, res) {
         let event = events[i]
         if (event.message) {
             if (event.message.text) {
-                sendMessage(event.sender.id, { text: event.message.text })
+
+                if(event.message.text === '你叫什麼名字'){
+                    sendMessage(event.sender.id,{text : '黃柏融'})
+                }else if (event.message.text === '你的信箱'){
+                    sendMessage(event.sender.id,{text: 'b9602104@gmail.com'})
+                }else{
+                    sendMessage(event.sender.id, { text: event.message.text })                    
+                }
             }
         }
     }
